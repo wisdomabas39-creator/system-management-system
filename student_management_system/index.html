@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">SMS</div>
+      <div>
+        <h1>Student Management System</h1>
+        <p>Manage student records in one place</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">STUDENT RECORDS</p>
+        <h2>Dashboard</h2>
+        <p class="muted">Register, find, update and manage students.</p>
+      </div>
+      <div class="total-card">
+        <span>Total students</span>
+        <strong id="studentCount">0</strong>
+      </div>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="section-heading">
+        <div>
+          <h2 id="formTitle">Register a student</h2>
+          <p class="muted">Enter the student's information below.</p>
+        </div>
+        <span class="step-label" id="formMode">NEW RECORD</span>
+      </div>
+
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <div class="form-grid">
+          <label>
+            Full name
+            <input type="text" id="fullName" placeholder="Enter fullName" required maxlength="80">
+          </label>
+          <label>
+            Matric number
+            <input type="text" id="matricNumber" placeholder="Enter matricNumber" required maxlength="30">
+          </label>
+          <label>
+            Department
+            <input type="text" id="department" placeholder="Enter department" required maxlength="60">
+          </label>
+          <label>
+            Level
+            <select id="level" required>
+              <option value="">Select level</option>
+              <option>100 Level</option>
+              <option>200 Level</option>
+              <option>300 Level</option>
+              <option>400 Level</option>
+              <option>500 Level</option>
+            </select>
+          </label>
+          <label>
+            Email address
+            <input type="email" id="email" placeholder="Enter email" required maxlength="100">
+          </label>
+          <label>
+            Phone number
+            <input type="tel" id="phone" placeholder="Enter phone no." required maxlength="20">
+          </label>
+        </div>
+        <div class="form-actions">
+          <button class="btn primary" type="submit" id="submitBtn">Register student</button>
+          <button class="btn secondary hidden" type="button" id="cancelEditBtn">Cancel edit</button>
+          <span id="formMessage" class="form-message" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel records-panel">
+      <div class="records-heading">
+        <div>
+          <h2>Registered students</h2>
+          <p class="muted">All student records are shown below.</p>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">Search students</span>
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="searchInput" placeholder="Search name, matric no. or department">
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Matric number</th>
+              <th>Department</th>
+              <th>Level</th>
+              <th>Contact</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <tr><td colspan="6" class="empty-state">No students registered yet. Add your first student above.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Student records are saved in this browser using local storage.</p>
+    </section>
+  </main>
+
+  <footer>Student Management System  Created by Wisdom Sambo<span>•</span> HTML, CSS & JavaScript</footer>
+</body>
+</html>
